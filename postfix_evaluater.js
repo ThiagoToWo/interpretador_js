@@ -12,7 +12,7 @@ O algoritmo é como segue:
 		é seu valor no conjunto de caracteres do computador menos o valor de ‘0’ no 
 		conjunto de caracteres do computador).
 	Caso contrário, se o caractere atual for um operador,
-		Remova os dois elementos superiores da pilha para variáveis x e y.
+		Remova os dois elementos superiores da pilha para letiáveis x e y.
 		Calcule y operador x.
 		Adicione o resultado do cálculo à pilha.
 3) Quando o caractere nulo for encontrado na expressão, remova o valor superior da pilha. 
@@ -46,15 +46,15 @@ postfix				stack				value
 */
 
 const evaluater = (function(){
-	var tos = -1; // topo da pilha
-	var pfx_pos = 0; // posição de leitura atual da postfix
-	var stack = new Array(100);
+	let tos = -1; // topo da pilha
+	let pfx_pos = 0; // posição de leitura atual da postfix
+	const stack = [];
 
 	function evaluatePostfixExpression(postfix) {
-		var x = 0;
-		var y = 0;
-		var value = 0;
-		var c = '';
+		let x = 0;
+		let y = 0;
+		let value = 0;
+		let c = '';
 		
 		// Acrescente o caractere nulo (‘\0’) ao fim da expressão pós-fixa.
 		postfix += '\0';		
@@ -71,7 +71,7 @@ const evaluater = (function(){
 				stack[++tos] = Number(c);
 			} else { // Caso contrário, se o caractere atual for um operador,
 				
-				// Remova os dois elementos superiores da pilha para variáveis x e y.
+				// Remova os dois elementos superiores da pilha para letiáveis x e y.
 				x = stack[tos--];
 				y = stack[tos--];
 				

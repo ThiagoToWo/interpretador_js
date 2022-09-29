@@ -55,15 +55,14 @@ infix			stack		postfix
 */
 
 const converter = (function() {
-	var tos = -1; // topo da pilha
-	var ifx_pos = 0; // posição de leitura atual da infix
-	var stack = new Array(100);
+	let tos = -1; // topo da pilha
+	let ifx_pos = 0; // posição de leitura atual da infix
+	const stack = [];
 
 	//converte a expressão infixa em notação pós-fixa.
 	function convertToPostfix(infix) {
-		var len = infix.length;
-		var postfix = "";
-		var c = '';
+		let postfix = "";
+		let c = '';
 		
 		// Insira um parêntese esquerdo ‘(‘ na pilha.
 		stack[++tos] = '(';
